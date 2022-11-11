@@ -15,7 +15,7 @@ const SimpleTableViewPage = () => {
     // const tableData = useSelector(tableDataSelector)
     const tableData = mockMedData
 
-    console.log('SIMPLE T DATA: ', tableData)
+    // console.log('SIMPLE T DATA: ', tableData)
     
     const TableComponent = () => {
         return (
@@ -81,7 +81,7 @@ const SimpleTableViewPage = () => {
         </>
     )
             
-    console.log('view',radioValue)
+    // console.log('view',radioValue)
 
     return(
             <Container fluid={true}>

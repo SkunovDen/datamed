@@ -10,6 +10,7 @@ test('Nav to Data Input page', () => {
   const dataInputNavLinkElement = screen.getByText(/Data Input/i);
   userEvent.click(dataInputNavLinkElement)
 
+
   // find Upload button
   const uploadButtonElement = screen.getByText('Upload file');
   expect(uploadButtonElement).toBeInTheDocument();
