@@ -6,6 +6,7 @@ const MainPage = () => {
         <Container>
             <h3>Main page</h3>
             About project / etc.
+            11 11 2022
         </Container>
     )
 }

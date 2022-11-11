@@ -1,10 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import mockData from './mockData';
 
-// import {parse } from "papaparse";
 const Papa = require('papaparse');
-
-
 
 
 export const loadDataFromFile = createAsyncThunk(
@@ -29,7 +26,6 @@ export const loadDataFromFile = createAsyncThunk(
             }
         });
 
-        // console.log('parsed: ', result)
         return result
     }
 )   
