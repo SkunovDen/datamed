@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/datamed/static/css/main.7b99a074.css",
-    "main.js": "/datamed/static/js/main.dc167aae.js",
+    "main.js": "/datamed/static/js/main.0cb3afa6.js",
     "static/js/787.a4b09c15.chunk.js": "/datamed/static/js/787.a4b09c15.chunk.js",
     "index.html": "/datamed/index.html",
     "main.7b99a074.css.map": "/datamed/static/css/main.7b99a074.css.map",
-    "main.dc167aae.js.map": "/datamed/static/js/main.dc167aae.js.map",
+    "main.0cb3afa6.js.map": "/datamed/static/js/main.0cb3afa6.js.map",
     "787.a4b09c15.chunk.js.map": "/datamed/static/js/787.a4b09c15.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7b99a074.css",
-    "static/js/main.dc167aae.js"
+    "static/js/main.0cb3afa6.js"
   ]
 }
