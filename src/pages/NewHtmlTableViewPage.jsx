@@ -79,8 +79,6 @@ const NewHtmlTableViewPage = () => {
     )
             
 
-    console.log ('DATA: ', tableData)
-
     return(
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>

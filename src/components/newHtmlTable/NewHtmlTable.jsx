@@ -16,15 +16,28 @@ const NewHtmlTable = (props) => {
   for(let i = 0; i < colCount; i++){
     initColumnsSelect[i] = true
   }
-  console.log('Arr: ', initColumnsSelect)
 
   const[columnsSelect, setColumnsSelect] = useState(initColumnsSelect)
+
+  const columnsSelectToggle = (colNum) => {
+    setColumnsSelect(prev => {
+      const updated = prev
+      updated[colNum] = ! prev[colNum]
+      return updated
+    })
+    // const toggleKey = e.target.id
+    // document.getElementById( toggleKey ).classList.toggle('selected')
+  }
 
   const cellClick = (e) => {
     const id = e.target.id
     const [col, row] = id.split(':')
+    const colN = col.split('_')[1]
+    const rowN = row.split('_')[1]
     console.log('COL : ', col.split('_')[1], '   ROW: ', row.split('_')[1])
 
+    console.log('Toggle column: ', colN)
+    columnsSelectToggle(colN)
   }
 
   const headers = (keys) => {
@@ -32,10 +45,9 @@ const NewHtmlTable = (props) => {
       <tr className="header">{ 
         keys.map((key, index) => { 
             const id = `col_${index}:row_H`;
-            
+
             return ( 
               <th key={key} data-col={key} id={id}
-                  className = {initColumnsSelect[index] ? 'highlighted' : ''}
                   onClick={e=>{cellClick(e)}}>
                 {key}
               </th> 

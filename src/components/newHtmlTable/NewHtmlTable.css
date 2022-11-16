@@ -36,8 +36,12 @@ body {
   th:hover{
     background: lightsteelblue
   }
+
+  td:hover{
+    background: lightsteelblue
+  }
   
   
-  .highlighted {
-    background: lightsteelblue  
+  .selected {
+    background: steelblue  
   }
