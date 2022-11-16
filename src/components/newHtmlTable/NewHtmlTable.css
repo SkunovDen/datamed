@@ -34,14 +34,14 @@ body {
   }
 
   th:hover{
-    background: lightsteelblue
+    background: steelblue
   }
 
   td:hover{
-    background: lightsteelblue
+    background: steelblue
   }
   
   
   .selected {
-    background: steelblue  
+    background: lightsteelblue  
   }

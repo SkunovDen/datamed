@@ -25,8 +25,9 @@ const NewHtmlTable = (props) => {
       updated[colNum] = ! prev[colNum]
       return updated
     })
-    // const toggleKey = e.target.id
-    // document.getElementById( toggleKey ).classList.toggle('selected')
+    const toggleKey = `col_${colNum}:row_H`
+    console.log('Toggle key: ', toggleKey)
+    document.getElementById( toggleKey ).classList.toggle('selected')
   }
 
   const cellClick = (e) => {
