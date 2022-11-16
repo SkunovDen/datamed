@@ -9,6 +9,7 @@ body {
   table, th, td {
     border: 1px solid black;
     border-collapse: separate;
+    white-space: nowrap;
     font-size: small
   }
 
@@ -33,15 +34,22 @@ body {
     top: 0;  
   }
 
-  th:hover{
-    background: steelblue
-  }
+  /* th:hover{
+    background: #f3f3f3;
+  } */
 
   td:hover{
-    background: steelblue
+    background: #f3f3f3;
   }
-  
+
+  tr:hover{
+    background: #f3f3f3;
+  }
   
   .selected {
     background: lightsteelblue  
+  }
+
+  .highlighted {
+    background: #f3f3f3;
   }
