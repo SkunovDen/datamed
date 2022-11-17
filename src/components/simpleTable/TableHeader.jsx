@@ -1,25 +1,30 @@
-import React from "react";
+import React, { useState } from "react";
+
+
 
 
 const TableHeader = (props) => {
     const columnsKeys = props.columnsKeys
+    const columnsSelected= props.columnsSelected
 
     return(
         <tr className="header">{ 
-            columnsKeys.map((key, index) => { 
-              const id = `col_${index}:row_H`;
-              const colData = `C_${index}`
+            columnsKeys.map((columnKey, columnIndex) => { 
+              const id      = `col_${columnIndex}:row_H`;
+              const colData = `C_${columnIndex}`
   
               const rowData = `${'H'}`
+              
               return ( 
-                <th key={key} 
-                    data-col={colData} 
-                    data-row={rowData}
+                <th 
                     id={id}
-                    // className={props.columnsSelected[key]? 'selected' :''}
+
+                    key={columnKey} 
+                    data-col={colData} data-row={rowData}
+                    
                     onClick={(e) => {props.cellOnClick(e)}}
-                    >
-                  {key}
+                >
+                  {columnKey}
                 </th> 
               )
             })

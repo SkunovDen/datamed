@@ -4,23 +4,26 @@ import TableHeader from "./TableHeader";
 
 
 const SimpleTable = (props) => {
+    const tableName = props.tableName
   const data = props.data 
-  const columnsKeys = Object.keys(data[0])
 
-  const initialState = {}
-  columnsKeys.map( (col) => ( Object.assign(initialState, { [col] : false}) ))
-  
-  const colCount = columnsKeys.length
-  const initColumnsSelected = new Array(colCount);
+
+  const columnsDataKeys = Object.keys(data[0])
+
+//   const initial = {}
+  columnsDataKeys.map( (col) => ( Object.assign({}, { [col] : false}) ))
+ 
+  const colCount = columnsDataKeys.length
+  const initSelectedColumns = new Array(colCount);
   
   for(let i = 0; i < colCount; i++){
-    initColumnsSelected[i] = true
+    initSelectedColumns[i] = false
   }
 
-  const[columnsSelected, setColumnsSelected] = useState(initColumnsSelected)
+  const[selectedColumns, setSelectedColumns] = useState(initSelectedColumns)
 
   const columnsSelectToggle = (colNum) => {
-    setColumnsSelected(prev => {
+    setSelectedColumns(prev => {
       const updated = prev
       updated[colNum] = ! prev[colNum]
       return updated
@@ -38,6 +41,7 @@ const SimpleTable = (props) => {
     columnsSelectToggle(colN)
 
     console.log('D-ATTR col: ', colN,'   D-ATTR row: ',rowN)
+    console.log(tableName, ': Selected STATE: ', selectedColumns)
   }
 
   const highLightOn = (e) => {
@@ -51,8 +55,8 @@ const SimpleTable = (props) => {
 
   const highLightOff = (e) => {
     const col = e.target.dataset.col
-    const elements3 = document.querySelectorAll(`[data-col="${col}"]`);
-    elements3.forEach(el=> {
+    const elements = document.querySelectorAll(`[data-col="${col}"]`);
+    elements.forEach(el=> {
       el.classList.remove('highlighted')
     })
     // console.log('Highlight: ', elements3)
@@ -93,14 +97,14 @@ const SimpleTable = (props) => {
       <thead>                 
           <TableHeader 
             cellOnClick={cellOnClick} 
-            columnsKeys={columnsKeys}
-            columnsSelected={columnsSelected} />
+            columnsKeys={columnsDataKeys}
+            columnsSelected={selectedColumns} />
           {/* { headers(columns) } */}
       </thead>
 
       <tbody>
           {data.map((row, index) => {
-              return rowRender(row, columnsKeys, index)
+              return rowRender(row, columnsDataKeys, index)
             } 
           )}
       </tbody>

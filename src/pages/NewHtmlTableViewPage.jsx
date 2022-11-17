@@ -57,7 +57,7 @@ const NewHtmlTableViewPage = () => {
         <Row>
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
                 {/* <TableComponent /> */}
-                <SimpleTable data={tableData} />
+                <SimpleTable data={tableData} tableName={'sinlge table'}/>
             </Container>
         </Row>
     )
@@ -67,7 +67,7 @@ const NewHtmlTableViewPage = () => {
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
                     {/* <TableComponent /> */}
-                    <SimpleTable data={tableData} />
+                    <SimpleTable data={tableData} tableName={'split table #1'}/>
                 </Container>
             </Row>        
             
@@ -78,7 +78,7 @@ const NewHtmlTableViewPage = () => {
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
                     {/* <TableComponent /> */}
-                    <SimpleTable data={tableData} />
+                    <SimpleTable data={tableData} tableName={'split table #2'}/>
                 </Container>
             </Row> 
         </>
@@ -89,13 +89,13 @@ const NewHtmlTableViewPage = () => {
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>
                  <Col                         
-                    xs={{ span: 4, offset: 5 }} 
-                    sm={{ span: 4, offset: 5 }} 
+                    // xs={{ span: 4, offset: 5 }} 
+                    // sm={{ span: 4, offset: 5 }} 
                     md={{ span: 4, offset: 5 }}
-                    lg={{ span: 4, offset: 5 }}
-                    xxl={{ span: 4, offset: 5 }}
+                    // lg={{ span: 4, offset: 5 }}
+                    // xxl={{ span: 4, offset: 5 }}
                     >
-                    SimpleTable{' '}
+                    *SimpleTable{' '}
                     <TableSelectorComponent />
                     
                 </Col>
