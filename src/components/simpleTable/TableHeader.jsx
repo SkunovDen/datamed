@@ -1,7 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
+import styled from "styled-components";
 
-
-
+const StyledTh = styled.th`
+  background : ${props => props.selected ? 'lightsteelblue' : 'white'}
+`
 
 const TableHeader = (props) => {
     const columnsKeys = props.columnsKeys
@@ -11,21 +13,21 @@ const TableHeader = (props) => {
         <tr className="header">{ 
             columnsKeys.map((columnKey, columnIndex) => { 
               const id      = `col_${columnIndex}:row_H`;
-              const colData = `C_${columnIndex}`
+              const colData = `${columnIndex}`
   
               const rowData = `${'H'}`
               
               return ( 
-                <th 
+                <StyledTh 
                     id={id}
-
+                    selected={columnsSelected[columnIndex]}
                     key={columnKey} 
                     data-col={colData} data-row={rowData}
                     
                     onClick={(e) => {props.cellOnClick(e)}}
                 >
                   {columnKey}
-                </th> 
+                </StyledTh> 
               )
             })
           }

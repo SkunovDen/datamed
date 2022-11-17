@@ -1,5 +1,3 @@
-
-
 body {
     margin: 0;
     padding: 0;
@@ -17,6 +15,7 @@ body {
     text-align: center;
     position: relative;
   }
+
   th, td {
     padding: 0.25rem 0.5rem 0.25rem 0.5rem;
   }
@@ -26,7 +25,6 @@ body {
     border: 2px solid black;
     font-size: medium
   }
-
 
   th {
     background: white;
@@ -44,10 +42,6 @@ body {
 
   tr:hover{
     background: #f3f3f3;
-  }
-  
-  .selected {
-    background: lightsteelblue  
   }
 
   .highlighted {

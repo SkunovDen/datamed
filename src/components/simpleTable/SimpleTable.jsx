@@ -4,13 +4,10 @@ import TableHeader from "./TableHeader";
 
 
 const SimpleTable = (props) => {
-    const tableName = props.tableName
   const data = props.data 
-
 
   const columnsDataKeys = Object.keys(data[0])
 
-//   const initial = {}
   columnsDataKeys.map( (col) => ( Object.assign({}, { [col] : false}) ))
  
   const colCount = columnsDataKeys.length
@@ -21,27 +18,17 @@ const SimpleTable = (props) => {
   }
 
   const[selectedColumns, setSelectedColumns] = useState(initSelectedColumns)
-
+  
   const columnsSelectToggle = (colNum) => {
-    setSelectedColumns(prev => {
-      const updated = prev
-      updated[colNum] = ! prev[colNum]
-      return updated
-    })
-
-    const toggledColHeaderId = `col_${colNum}:row_H`
-    const columnElements = document.getElementById( toggledColHeaderId )
-    columnElements && columnElements.classList.toggle('selected')
+     setSelectedColumns(prev => (prev.map( 
+        (el, index) => ( Number(colNum) === index ? !el : el ))))
   }
 
   const cellOnClick = (e) => {
     const colN = e.target.dataset.col
-    const rowN = e.target.dataset.row
+    // const rowN = e.target.dataset.row
     
     columnsSelectToggle(colN)
-
-    console.log('D-ATTR col: ', colN,'   D-ATTR row: ',rowN)
-    console.log(tableName, ': Selected STATE: ', selectedColumns)
   }
 
   const highLightOn = (e) => {
@@ -91,7 +78,6 @@ const SimpleTable = (props) => {
   }
 
 
-
   return(
     <table>
       <thead>                 
@@ -99,13 +85,11 @@ const SimpleTable = (props) => {
             cellOnClick={cellOnClick} 
             columnsKeys={columnsDataKeys}
             columnsSelected={selectedColumns} />
-          {/* { headers(columns) } */}
       </thead>
 
       <tbody>
-          {data.map((row, index) => {
-              return rowRender(row, columnsDataKeys, index)
-            } 
+          {data.map((row, index) => rowRender(row, columnsDataKeys, index)
+             
           )}
       </tbody>
     </table>

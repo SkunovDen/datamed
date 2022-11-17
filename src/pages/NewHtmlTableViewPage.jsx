@@ -7,7 +7,6 @@ import ToolBar from "../components/nav/ToolBar";
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
-import NewHtmlTable from "../components/newHtmlTable/NewHtmlTable";
 import SimpleTable from "../components/simpleTable/SimpleTable";
 
 import mockData2 from "../store/mockData2";
@@ -46,18 +45,10 @@ const NewHtmlTableViewPage = () => {
         )
     }
 
-    const TableComponent = () => {
-        return (
-            // <NewHtmlTable data={tableData} />
-            <SimpleTable data={tableData} />
-        )
-    }
-
     const singleView = (
         <Row>
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
-                {/* <TableComponent /> */}
-                <SimpleTable data={tableData} tableName={'sinlge table'}/>
+                <SimpleTable data={tableData} />
             </Container>
         </Row>
     )
@@ -66,8 +57,7 @@ const NewHtmlTableViewPage = () => {
         <>
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    {/* <TableComponent /> */}
-                    <SimpleTable data={tableData} tableName={'split table #1'}/>
+                    <SimpleTable data={tableData} />
                 </Container>
             </Row>        
             
@@ -77,8 +67,7 @@ const NewHtmlTableViewPage = () => {
             
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    {/* <TableComponent /> */}
-                    <SimpleTable data={tableData} tableName={'split table #2'}/>
+                    <SimpleTable data={tableData} />
                 </Container>
             </Row> 
         </>
@@ -89,12 +78,12 @@ const NewHtmlTableViewPage = () => {
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>
                  <Col                         
-                    // xs={{ span: 4, offset: 5 }} 
-                    // sm={{ span: 4, offset: 5 }} 
+                    xs={{ span: 4, offset: 5 }} 
+                    sm={{ span: 4, offset: 5 }} 
                     md={{ span: 4, offset: 5 }}
-                    // lg={{ span: 4, offset: 5 }}
-                    // xxl={{ span: 4, offset: 5 }}
-                    >
+                    lg={{ span: 4, offset: 5 }}
+                    xxl={{ span: 4, offset: 5 }}
+                >
                     *SimpleTable{' '}
                     <TableSelectorComponent />
                     
