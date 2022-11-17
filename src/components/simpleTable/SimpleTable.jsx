@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import './NewHtmlTable.css'
+import './SimpleTable.css'
 import TableHeader from "./TableHeader";
 
 
-const NewHtmlTable = (props) => {
+const SimpleTable = (props) => {
   const data = props.data 
   const columnsKeys = Object.keys(data[0])
 
@@ -91,7 +91,10 @@ const NewHtmlTable = (props) => {
   return(
     <table>
       <thead>                 
-          <TableHeader cellOnClick={cellOnClick} columnsKeys={columnsKeys} columnsSelected={columnsSelected} />
+          <TableHeader 
+            cellOnClick={cellOnClick} 
+            columnsKeys={columnsKeys}
+            columnsSelected={columnsSelected} />
           {/* { headers(columns) } */}
       </thead>
 
@@ -106,4 +109,4 @@ const NewHtmlTable = (props) => {
 }
 
 
-export default NewHtmlTable
+export default SimpleTable

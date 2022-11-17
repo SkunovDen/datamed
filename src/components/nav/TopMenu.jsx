@@ -12,7 +12,7 @@ const TopMenu = () => {
                 <NavLink to="/input" style={{color: "#FFFFFF", margin: "0 10px"}}>Data Input</NavLink>
                 <NavLink to="/table" style={{color: "#FFFFFF", margin: "0 10px"}}>Table View</NavLink>
                 <NavLink to="/htable" style={{color: "#FFFFFF", margin: "0 10px"}}>***</NavLink>
-                <NavLink to="/nhtable" style={{color: "#FFFFFF", margin: "0 10px"}}>New Table</NavLink>
+                <NavLink to="/nhtable" style={{color: "#FFFFFF", margin: "0 10px"}}>New Table</NavLink>             
             </Nav>
             </Container>
         </Navbar>

@@ -16,6 +16,7 @@ import NewHtmlTableViewPage from '../../pages/NewHtmlTableViewPage';
 
 
 
+
 function App() {
   return (
 
@@ -29,6 +30,7 @@ function App() {
                   <Route path={"table"}  element={<TableViewPage />} />
                   <Route path={"htable"} element={<SimpleTableViewPage />} />
                   <Route path={"nhtable"} element={<NewHtmlTableViewPage />} />
+                  
               </Route>
           </Routes>
         </div>

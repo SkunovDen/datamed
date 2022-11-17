@@ -8,6 +8,8 @@ import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
 
 import NewHtmlTable from "../components/newHtmlTable/NewHtmlTable";
+import SimpleTable from "../components/simpleTable/SimpleTable";
+
 import mockData2 from "../store/mockData2";
 
 const NewHtmlTableViewPage = () => {
@@ -46,14 +48,16 @@ const NewHtmlTableViewPage = () => {
 
     const TableComponent = () => {
         return (
-            <NewHtmlTable data={tableData} />
-            )
+            // <NewHtmlTable data={tableData} />
+            <SimpleTable data={tableData} />
+        )
     }
 
     const singleView = (
         <Row>
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
-                <TableComponent />
+                {/* <TableComponent /> */}
+                <SimpleTable data={tableData} />
             </Container>
         </Row>
     )
@@ -62,7 +66,8 @@ const NewHtmlTableViewPage = () => {
         <>
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    <TableComponent />
+                    {/* <TableComponent /> */}
+                    <SimpleTable data={tableData} />
                 </Container>
             </Row>        
             
@@ -72,7 +77,8 @@ const NewHtmlTableViewPage = () => {
             
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    <TableComponent />
+                    {/* <TableComponent /> */}
+                    <SimpleTable data={tableData} />
                 </Container>
             </Row> 
         </>
@@ -82,14 +88,14 @@ const NewHtmlTableViewPage = () => {
     return(
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>
-                <Col                         
-                    xs={{ span: 2, offset: 7 }} 
-                    sm={{ span: 2, offset: 7 }} 
-                    md={{ span: 2, offset: 7 }}
-                    lg={{ span: 2, offset: 7 }}
-                    xxl={{ span: 2, offset: 7 }}
+                 <Col                         
+                    xs={{ span: 4, offset: 5 }} 
+                    sm={{ span: 4, offset: 5 }} 
+                    md={{ span: 4, offset: 5 }}
+                    lg={{ span: 4, offset: 5 }}
+                    xxl={{ span: 4, offset: 5 }}
                     >
-                    
+                    SimpleTable{' '}
                     <TableSelectorComponent />
                     
                 </Col>
