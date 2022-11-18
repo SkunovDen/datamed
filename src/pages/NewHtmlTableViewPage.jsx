@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
 
-import ToolBar from "../components/nav/ToolBar";
+// import ToolBar from "../components/nav/ToolBar";
 
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
 import ToggleButton from 'react-bootstrap/ToggleButton';
@@ -10,6 +10,9 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 import SimpleTable from "../components/simpleTable/SimpleTable";
 
 import mockData2 from "../store/mockData2";
+
+
+import ToolBar from "../components/toolbar/ToolBar";
 
 const NewHtmlTableViewPage = () => {
 
@@ -105,8 +108,15 @@ const NewHtmlTableViewPage = () => {
 
                 </Col>
                 
-                <Col md={2}>
+                <Col             
+                    xs={{ span: 3 }}
+                    sm={{ span: 3 }} 
+                    md={{ span: 3 }}
+                    lg={{ span: 3 }}
+                    xxl={{ span: 3 }}
+                >
                     <ToolBar />
+                    
                 </Col>
             </Row>
         </Container>

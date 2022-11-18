@@ -70,7 +70,6 @@ const SimpleTableViewPage = () => {
             </Row>        
             
             <Row style ={{height:'10vh',overflow: 'auto'}}>
-
             </Row>        
             
             <Row>
@@ -107,20 +106,15 @@ const SimpleTableViewPage = () => {
                         md={{ span: 8, offset: 1 }}
                         lg={{ span: 8, offset: 1 }}
                        xxl={{ span: 8, offset: 1 }}
-
                         style ={{maxHeight:'70vh',overflow: 'auto'}}
                     >
 
-               
-
-                    { (radioValue === '1') ? singleView : splitView }
+                        { (radioValue === '1') ? singleView : splitView }
                         
-                        
-
                     </Col>
                     
                     <Col md={2}>
-                    <ToolBar />
+                        <ToolBar s={11} />
                     </Col>
                 </Row>
 
