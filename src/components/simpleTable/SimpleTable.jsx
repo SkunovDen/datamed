@@ -37,7 +37,6 @@ const SimpleTable = (props) => {
     elements.forEach(el => {
       el.classList.add('highlighted')
     })
-    // console.log('Highlight: ', elements)
   } 
 
   const highLightOff = (e) => {
@@ -46,7 +45,6 @@ const SimpleTable = (props) => {
     elements.forEach(el=> {
       el.classList.remove('highlighted')
     })
-    // console.log('Highlight: ', elements3)
   } 
 
   const rowRender = (row, keys, row_index) => {
@@ -88,9 +86,7 @@ const SimpleTable = (props) => {
       </thead>
 
       <tbody>
-          {data.map((row, index) => rowRender(row, columnsDataKeys, index)
-             
-          )}
+          {data.map( (row, index) => rowRender(row, columnsDataKeys, index) )}
       </tbody>
     </table>
   )
