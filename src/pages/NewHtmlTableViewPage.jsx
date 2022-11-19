@@ -10,10 +10,17 @@ import SimpleTable from "../components/simpleTable/SimpleTable";
 
 import mockData2 from "../store/mockData2";
 
+import { useSelector, useDispatch } from "react-redux";
+import { transformSourceDataSelector, transformResultDataSelector,
+         sourceDataSelectedColumnsSelector, resultDataSelectedColumnsSelector} from '../store/transformDataSlice'
+import { addSourceSelectedColumn, removeSourceSelectedColumn,
+         addResultSelectedColumn, removeResultSelectedColumn } from '../store/transformDataSlice'
+
 const NewHtmlTableViewPage = () => {
 
-    const tableData = mockData2
-    
+    const sourceTableData = useSelector(transformSourceDataSelector) //mockData2
+    const resultTableData = useSelector(transformResultDataSelector)
+
     const [radioValue, setRadioValue] = useState('1');
 
     const radios = [
@@ -46,7 +53,7 @@ const NewHtmlTableViewPage = () => {
     const singleView = (
         <Row>
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
-                <SimpleTable data={tableData} />
+                <SimpleTable data={sourceTableData} />
             </Container>
         </Row>
     )
@@ -55,7 +62,9 @@ const NewHtmlTableViewPage = () => {
         <>
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    <SimpleTable data={tableData} />
+                    <SimpleTable 
+                        data={sourceTableData} 
+                    />
                 </Container>
             </Row>        
             
@@ -65,7 +74,7 @@ const NewHtmlTableViewPage = () => {
             
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    <SimpleTable data={tableData} />
+                    <SimpleTable data={resultTableData} />
                 </Container>
             </Row> 
         </>

@@ -5,7 +5,7 @@ import TableHeader from "./TableHeader";
 
 const SimpleTable = (props) => {
   const data = props.data 
-
+  // console.log('Simple Table data input:', data)
 
   const columnsDataKeys = Object.keys(data[0])
 
