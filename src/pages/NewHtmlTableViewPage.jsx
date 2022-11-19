@@ -8,21 +8,57 @@ import ToggleButton from 'react-bootstrap/ToggleButton';
 
 import SimpleTable from "../components/simpleTable/SimpleTable";
 
-import mockData2 from "../store/mockData2";
+
+
 
 import { useSelector, useDispatch } from "react-redux";
+
 import { transformSourceDataSelector, transformResultDataSelector,
-         sourceDataSelectedColumnsSelector, resultDataSelectedColumnsSelector} from '../store/transformDataSlice'
-import { addSourceSelectedColumn, removeSourceSelectedColumn,
-         addResultSelectedColumn, removeResultSelectedColumn } from '../store/transformDataSlice'
+         sourceDataSelectedColumnsSelector, resultDataSelectedColumnsSelector,
+         addSourceSelectedColumn, removeSourceSelectedColumn,
+         addResultSelectedColumn, removeResultSelectedColumn,
+         toggleSourceSelectedColumn, toggleResultSelectedColumn  } from '../store/transformDataSlice'
+
+
+
+
 
 const NewHtmlTableViewPage = () => {
 
-    const sourceTableData = useSelector(transformSourceDataSelector) //mockData2
+    const sourceTableData = useSelector(transformSourceDataSelector)
     const resultTableData = useSelector(transformResultDataSelector)
 
-    const [radioValue, setRadioValue] = useState('1');
+    const sourceSelectedColumns = useSelector(sourceDataSelectedColumnsSelector)
+    const resultSelectedColumns = useSelector(resultDataSelectedColumnsSelector)
 
+    const dispatch = useDispatch()
+
+    // const test1 = (colNum) => {
+    //     console.log('Test action 1  button click: ')
+    //     dispatch( toggleSourceSelectedColumn( colNum ) )
+    //   }
+    
+    
+    //   const test2 = (colNum) =>{
+    //     console.log('Test action 2  button click: ', colNum)
+    //     dispatch( toggleResultSelectedColumn( colNum ) )
+    //   }
+    
+
+    const toggleSourceColumn = (colNum) => {
+        console.log('Toggle source:  ', colNum)
+        dispatch( toggleSourceSelectedColumn ( colNum ) )
+      }
+    
+    
+      const toggleResultColumn = (colNum) =>{
+        console.log('Toggle result: ', colNum)
+        dispatch( toggleResultSelectedColumn(colNum ) )
+      }
+
+
+
+    const [radioValue, setRadioValue] = useState('1');
     const radios = [
         { name: 'Single View', value: '1' },
         { name: 'Split View',  value: '2' },
@@ -48,12 +84,20 @@ const NewHtmlTableViewPage = () => {
                 ))}
             </ButtonGroup>
         )
-    }
+    }           
+    
+
+
+
 
     const singleView = (
         <Row>
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
-                <SimpleTable data={sourceTableData} />
+                <SimpleTable 
+                    data={sourceTableData} 
+                    selectedColumns={sourceSelectedColumns} 
+                    toggleColumn ={toggleSourceColumn}
+                />
             </Container>
         </Row>
     )
@@ -64,6 +108,8 @@ const NewHtmlTableViewPage = () => {
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
                     <SimpleTable 
                         data={sourceTableData} 
+                        selectedColumns={sourceSelectedColumns}
+                        toggleColumn ={toggleSourceColumn}
                     />
                 </Container>
             </Row>        
@@ -74,7 +120,11 @@ const NewHtmlTableViewPage = () => {
             
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
-                    <SimpleTable data={resultTableData} />
+                    <SimpleTable 
+                        data={resultTableData} 
+                        selectedColumns={resultSelectedColumns}
+                        toggleColumn ={toggleResultColumn}
+                    />
                 </Container>
             </Row> 
         </>

@@ -34,12 +34,18 @@ const testResultData = mockData2 //[[]]
 
                 
 
+const sourseSelectedInit = Array( mockData1[0].length ).fill(false)
+sourseSelectedInit[1] = true
+
+
+const resultSelectedInit = Array( Object.keys( testResultData[0] ) ).fill(false)
+resultSelectedInit[3] = true
 
 const initialState = {
     sourceData              : mockData1,
     resultData              : testResultData,
-    sourceDataSelectedColumns: [],
-    resultDataSelectedColumns: [],
+    sourceDataSelectedColumns: sourseSelectedInit,
+    resultDataSelectedColumns: resultSelectedInit,
 }
 
 export const transformDataSlice = createSlice({
@@ -49,24 +55,38 @@ export const transformDataSlice = createSlice({
 
 
                         /// SOURCE DATA REDUCERS ///
+        toggleSourceSelectedColumn: (state, action) => {
+//TODO remove //DEBUG
+            console.log('TOGGLE SELECTED SOURCE COLUMN REDUCER:: payload : ', action.payload)
+            const nowState = state.sourceDataSelectedColumns[action.payload]
+            state.sourceDataSelectedColumns[action.payload] = !nowState
+
+        },
 
         addSourceSelectedColumn: (state, action) => {
 //TODO remove //DEBUG
             console.log('ADD SELECTED SOURCE COLUMN REDUCER:: payload : ', action.payload)
+            state.sourceDataSelectedColumns[0] = true
         },
         removeSourceSelectedColumn: (state, action) => {
 //TODO remove //DEBUG
             console.log('REMOVE SELECTED SOURCE COLUMN  REDUCER:: payload : ', action.payload)
         },
 
-
+        
 
 
                         /// RESULT DATA REDUCERS ///
+        toggleResultSelectedColumn: (state, action) => {
+    //TODO remove //DEBUG
+                console.log('ADD SELECTED Result COLUMN REDUCER:: payload : ', action.payload)
+                state.resultDataSelectedColumns[action.payload] = !state.resultDataSelectedColumns[action.payload]
+            },
 
         addResultSelectedColumn: (state, action) => {
 //TODO remove //DEBUG
             console.log('ADD SELECTED Result COLUMN REDUCER:: payload : ', action.payload)
+            state.resultDataSelectedColumns[1] = true
         },
             
             
@@ -99,7 +119,8 @@ export const resultDataSelectedColumnsSelector  = state => state.transform.resul
 
 
 export const { addSourceSelectedColumn, removeSourceSelectedColumn,
-               addResultSelectedColumn, removeResultSelectedColumn  } = transformDataSlice.actions
+               addResultSelectedColumn, removeResultSelectedColumn,
+               toggleSourceSelectedColumn, toggleResultSelectedColumn } = transformDataSlice.actions
 
 
 export default transformDataSlice.reducer

@@ -12,6 +12,7 @@ import MainPage from "../../pages/MainPage";
 import InputDataPage from "../../pages/InputDataPage";
 import TableViewPage from "../../pages/TableViewPage";
 import SimpleTableViewPage from "../../pages/SimpleTableViewPage"
+
 import NewHtmlTableViewPage from '../../pages/NewHtmlTableViewPage';
 
 

@@ -5,10 +5,9 @@ import TableHeader from "./TableHeader";
 
 const SimpleTable = (props) => {
   const data = props.data 
-  // console.log('Simple Table data input:', data)
+  // console.log('Simple Table data input:',data)
 
   const columnsDataKeys = Object.keys(data[0])
-
 
 
   columnsDataKeys.map( (col) => ( Object.assign({}, { [col] : false}) ))
@@ -22,6 +21,10 @@ const SimpleTable = (props) => {
 
   const[selectedColumns, setSelectedColumns] = useState(initSelectedColumns)
   
+  const selectedColumnsFromStore = props.selectedColumns
+
+
+
   const columnsSelectToggle = (colNum) => {
      setSelectedColumns(prev => (prev.map( 
         (el, index) => ( Number(colNum) === index ? !el : el ))))
@@ -29,8 +32,11 @@ const SimpleTable = (props) => {
 
   const cellOnClick = (e) => {
     const colN = e.target.dataset.col
-   
-    columnsSelectToggle(colN)
+
+    console.log('TOGGLE : ', colN)
+
+    props.toggleColumn(colN)
+    // columnsSelectToggle(colN)
   }
 
   //TODO
@@ -65,7 +71,7 @@ const SimpleTable = (props) => {
                 data-col={colData} 
                 data-row={rowData}
                 id={id} 
-                onClick={e=>{cellOnClick(e)}}
+                onClick={e => { props.toggleColumn(e.target.dataset.col) }}
                 // onMouseEnter={(e) => highLightOn(e)}
                 // onMouseLeave={(e) => highLightOff(e)}
               >
@@ -86,7 +92,7 @@ const SimpleTable = (props) => {
           <TableHeader 
             cellOnClick={cellOnClick} 
             columnsKeys={columnsDataKeys}
-            columnsSelected={selectedColumns} />
+            columnsSelected={selectedColumnsFromStore} />
       </thead>
 
       <tbody>
