@@ -23,22 +23,24 @@ const SimpleTable = (props) => {
   }
 
   //TODO
-  const highLightOn = (e) => {
-    const col = e.target.dataset.col
-    const elements = document.querySelectorAll(`[data-col="${col}"]`);
-    elements.forEach(el => {
-      el.classList.add('highlighted')
-    })
-  } 
+
+  // const highLightOn = (e) => {
+  //   const col = e.target.dataset.col
+  //   const elements = document.querySelectorAll(`[data-col="${col}"]`);
+  //   elements.forEach(el => {
+  //     el.classList.add('highlighted')
+  //   })
+  // } 
 
 //TODO
-  const highLightOff = (e) => {
-    const col = e.target.dataset.col
-    const elements = document.querySelectorAll(`[data-col="${col}"]`);
-    elements.forEach(el=> {
-      el.classList.remove('highlighted')
-    })
-  } 
+
+  // const highLightOff = (e) => {
+  //   const col = e.target.dataset.col
+  //   const elements = document.querySelectorAll(`[data-col="${col}"]`);
+  //   elements.forEach(el=> {
+  //     el.classList.remove('highlighted')
+  //   })
+  // } 
 
   const rowRender = (row, columnsKeys, row_index) => {
     return(
