@@ -23,8 +23,8 @@ test('renders NavLinks', () => {
   const tableViewNavLinkElement = screen.getByText(/Table View/i);
   expect(tableViewNavLinkElement).toBeInTheDocument();
 
-  const htmlTableNavLinkElement = screen.getByText('***');
-  expect(htmlTableNavLinkElement).toBeInTheDocument();
+  // const htmlTableNavLinkElement = screen.getByText('***');
+  // expect(htmlTableNavLinkElement).toBeInTheDocument();
 });
 
 test('Nav to Data Input page', () => {

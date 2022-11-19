@@ -26,13 +26,13 @@ function App() {
         <div className="App">
           <Routes>
               <Route path={"/"} element={<Layout />}>
-                  {/* <Route index           element={<MainPage />} />
+                  <Route index           element={<MainPage />} />
                   <Route path={"input"}  element={<InputDataPage />} />
                   <Route path={"table"}  element={<TableViewPage />} />
-                  <Route path={"htable"} element={<SimpleTableViewPage />} /> */}
-                  {/* <Route path={"nhtable"} element={<NewHtmlTableViewPage />} /> */}
+                  <Route path={"htable"} element={<SimpleTableViewPage />} />
+                  <Route path={"nhtable"} element={<NewHtmlTableViewPage />} />
 
-                  <Route index element={<NewHtmlTableViewPage />} />
+                  {/* <Route index element={<NewHtmlTableViewPage />} /> */}
                   
               </Route>
           </Routes>

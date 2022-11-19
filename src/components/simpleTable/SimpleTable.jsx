@@ -1,42 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import './SimpleTable.css'
 import TableHeader from "./TableHeader";
 
 
 const SimpleTable = (props) => {
-  const data = props.data 
-  // console.log('Simple Table data input:',data)
+
+  if (props.data.length < 2){
+    return "TABLE DATA EMPTY "
+  }
+  const columnsDataNames = props.data[0]
+  const data = props.data.slice(1) 
 
   const columnsDataKeys = Object.keys(data[0])
 
-
-  columnsDataKeys.map( (col) => ( Object.assign({}, { [col] : false}) ))
- 
-  const colCount = columnsDataKeys.length
-  const initSelectedColumns = new Array(colCount);
-  
-  for(let i = 0; i < colCount; i++){
-    initSelectedColumns[i] = false
-  }
-
-  const[selectedColumns, setSelectedColumns] = useState(initSelectedColumns)
-  
   const selectedColumnsFromStore = props.selectedColumns
-
-
-
-  const columnsSelectToggle = (colNum) => {
-     setSelectedColumns(prev => (prev.map( 
-        (el, index) => ( Number(colNum) === index ? !el : el ))))
-  }
-
-  const cellOnClick = (e) => {
+  
+  const cellOnClick = (e, f) => {
+    console.log(e)
+    console.log(f)
     const colN = e.target.dataset.col
-
-    console.log('TOGGLE : ', colN)
-
     props.toggleColumn(colN)
-    // columnsSelectToggle(colN)
   }
 
   //TODO
@@ -57,10 +40,10 @@ const SimpleTable = (props) => {
     })
   } 
 
-  const rowRender = (row, keys, row_index) => {
+  const rowRender = (row, columnsKeys, row_index) => {
     return(
       <tr key={row_index}>
-        { keys.map((key, col_index) => {
+        { columnsKeys.map((key, col_index) => {
           const id = `col_${col_index}:row_${row_index}`;
 
           const colData = `${col_index}`          
@@ -85,14 +68,13 @@ const SimpleTable = (props) => {
     )
   }
 
-
   return(
     <table>
       <thead>                 
           <TableHeader 
-            cellOnClick={cellOnClick} 
-            columnsKeys={columnsDataKeys}
-            columnsSelected={selectedColumnsFromStore} />
+            columnsKeys={columnsDataNames}
+            columnsSelected={selectedColumnsFromStore}
+            cellOnClick={cellOnClick}  />
       </thead>
 
       <tbody>

@@ -15,8 +15,8 @@ import { useSelector, useDispatch } from "react-redux";
 
 import { transformSourceDataSelector, transformResultDataSelector,
          sourceDataSelectedColumnsSelector, resultDataSelectedColumnsSelector,
-         addSourceSelectedColumn, removeSourceSelectedColumn,
-         addResultSelectedColumn, removeResultSelectedColumn,
+        //  addSourceSelectedColumn, removeSourceSelectedColumn,
+        //  addResultSelectedColumn, removeResultSelectedColumn,
          toggleSourceSelectedColumn, toggleResultSelectedColumn  } from '../store/transformDataSlice'
 
 
@@ -31,30 +31,17 @@ const NewHtmlTableViewPage = () => {
     const sourceSelectedColumns = useSelector(sourceDataSelectedColumnsSelector)
     const resultSelectedColumns = useSelector(resultDataSelectedColumnsSelector)
 
-    const dispatch = useDispatch()
-
-    // const test1 = (colNum) => {
-    //     console.log('Test action 1  button click: ')
-    //     dispatch( toggleSourceSelectedColumn( colNum ) )
-    //   }
-    
-    
-    //   const test2 = (colNum) =>{
-    //     console.log('Test action 2  button click: ', colNum)
-    //     dispatch( toggleResultSelectedColumn( colNum ) )
-    //   }
-    
+    const dispatch = useDispatch()   
 
     const toggleSourceColumn = (colNum) => {
         console.log('Toggle source:  ', colNum)
         dispatch( toggleSourceSelectedColumn ( colNum ) )
-      }
-    
-    
-      const toggleResultColumn = (colNum) =>{
+    }
+
+    const toggleResultColumn = (colNum) =>{
         console.log('Toggle result: ', colNum)
-        dispatch( toggleResultSelectedColumn(colNum ) )
-      }
+        dispatch( toggleResultSelectedColumn( colNum ) )
+    }
 
 
 
@@ -92,7 +79,10 @@ const NewHtmlTableViewPage = () => {
 
     const singleView = (
         <Row>
+
             <Container fluid={true} style ={{maxHeight:'70vh',overflow: 'auto'}}>
+                <strong>Source table:</strong>
+                <br/>
                 <SimpleTable 
                     data={sourceTableData} 
                     selectedColumns={sourceSelectedColumns} 
@@ -106,6 +96,8 @@ const NewHtmlTableViewPage = () => {
         <>
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
+                    <strong>Source table:</strong>
+                    <br/>
                     <SimpleTable 
                         data={sourceTableData} 
                         selectedColumns={sourceSelectedColumns}
@@ -120,6 +112,8 @@ const NewHtmlTableViewPage = () => {
             
             <Row>
                 <Container fluid={true} style ={{maxHeight:'30vh',overflow: 'auto'}}>
+                    <strong>Result table:</strong>
+                    <br/>
                     <SimpleTable 
                         data={resultTableData} 
                         selectedColumns={resultSelectedColumns}
@@ -130,14 +124,11 @@ const NewHtmlTableViewPage = () => {
         </>
     )
             
-
-
-
     return(
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>
                  <Col md={5}>
-                     * NewHtmlTableViewPage * SimpleTable *
+                     * NewHtmlTableViewPage -> SimpleTable /s *
                  </Col>
                  <Col md={6}>
                     <TableSelectorComponent />
