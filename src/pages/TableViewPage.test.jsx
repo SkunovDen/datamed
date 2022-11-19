@@ -28,6 +28,6 @@ test('Nav to Table View page',  () => {
 //   await tick();
 
   // find Upload button
-  const tableElement = screen.getByText('APERIOD');
+  const tableElement = screen.getByText('Col1 Name');
   expect(tableElement).toBeInTheDocument();
 })

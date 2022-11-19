@@ -21,7 +21,7 @@ test('Nav to Table View page', () => {
   });
   
   // click nav link to Table View page
-  const simpleTableViewNavLinkElement = screen.getByText('***');
+  const simpleTableViewNavLinkElement = screen.getByText('Table View');
   expect(simpleTableViewNavLinkElement).toBeInTheDocument();
 
   userEvent.click(simpleTableViewNavLinkElement)
@@ -29,6 +29,6 @@ test('Nav to Table View page', () => {
 //   await tick();
 
   // find table cell content
-  const simpleTableElement = screen.getByText('APERIODC');
+  const simpleTableElement = screen.getByText('Col1 Name');
   expect(simpleTableElement).toBeInTheDocument();
 })
