@@ -6,7 +6,10 @@ import TableHeader from "./TableHeader";
 const SimpleTable = (props) => {
   const data = props.data 
 
+
   const columnsDataKeys = Object.keys(data[0])
+
+
 
   columnsDataKeys.map( (col) => ( Object.assign({}, { [col] : false}) ))
  
@@ -26,11 +29,11 @@ const SimpleTable = (props) => {
 
   const cellOnClick = (e) => {
     const colN = e.target.dataset.col
-    // const rowN = e.target.dataset.row
-    
+   
     columnsSelectToggle(colN)
   }
 
+  //TODO
   const highLightOn = (e) => {
     const col = e.target.dataset.col
     const elements = document.querySelectorAll(`[data-col="${col}"]`);
@@ -39,6 +42,7 @@ const SimpleTable = (props) => {
     })
   } 
 
+//TODO
   const highLightOff = (e) => {
     const col = e.target.dataset.col
     const elements = document.querySelectorAll(`[data-col="${col}"]`);
@@ -62,8 +66,8 @@ const SimpleTable = (props) => {
                 data-row={rowData}
                 id={id} 
                 onClick={e=>{cellOnClick(e)}}
-                onMouseEnter={(e) => highLightOn(e)}
-                onMouseLeave={(e) => highLightOff(e)}
+                // onMouseEnter={(e) => highLightOn(e)}
+                // onMouseLeave={(e) => highLightOff(e)}
               >
 
               {row[key]}

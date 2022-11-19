@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-
 import ToolBar from "../components/nav/ToolBar";
 
 import ButtonGroup from 'react-bootstrap/ButtonGroup';
@@ -19,7 +18,7 @@ const NewHtmlTableViewPage = () => {
 
     const radios = [
         { name: 'Single View', value: '1' },
-        { name: 'Split View', value: '2' },
+        { name: 'Split View',  value: '2' },
       ];
 
     const TableSelectorComponent = () => {
@@ -27,7 +26,7 @@ const NewHtmlTableViewPage = () => {
             <ButtonGroup>
                 {radios.map((radio, idx) => (
                 <ToggleButton
-                size="sm"
+                    size="sm"
                     key={idx}
                     id={`radio-${idx}`}
                     type="radio"
@@ -41,7 +40,6 @@ const NewHtmlTableViewPage = () => {
                 </ToggleButton>
                 ))}
             </ButtonGroup>
-
         )
     }
 
@@ -74,38 +72,27 @@ const NewHtmlTableViewPage = () => {
     )
             
 
+
+
     return(
         <Container fluid={true}>
             <Row style={{height: '10vh',paddingTop:'3vh'}}>
-                 <Col                         
-                    xs={{ span: 4, offset: 5 }} 
-                    sm={{ span: 4, offset: 5 }} 
-                    md={{ span: 4, offset: 5 }}
-                    lg={{ span: 4, offset: 5 }}
-                    xxl={{ span: 4, offset: 5 }}
-                >
-                    *SimpleTable{' '}
+                 <Col md={5}>
+                     * NewHtmlTableViewPage * SimpleTable *
+                 </Col>
+                 <Col md={6}>
                     <TableSelectorComponent />
-                    
                 </Col>
             </Row>
 
             <Row>
-                <Col  
-                    xs={{ span: 8, offset: 1 }} 
-                    sm={{ span: 8, offset: 1 }} 
-                    md={{ span: 8, offset: 1 }}
-                    lg={{ span: 8, offset: 1 }}
-                    xxl={{ span: 8, offset: 1 }}
-
-                    style ={{maxHeight:'70vh',overflow: 'auto'}}
-                >
+                <Col md={{ span: 8, offset: 1 }} >
 
                     { (radioValue === '1') ? singleView : splitView }
 
                 </Col>
                 
-                <Col md={2}>
+                <Col md={3}>
                     <ToolBar />
                 </Col>
             </Row>

@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import mockData from './mockData';
+import mockData2 from './mockData2';
 
 // import {parse } from "papaparse";
 const Papa = require('papaparse');
@@ -74,7 +74,7 @@ const testData2 = [
 
 
 const initialState = {
-    data              : mockData,
+    data              : mockData2,
     loadingState      : 'idle',
     loadingErrorState : null,
 }
