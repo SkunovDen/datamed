@@ -21,13 +21,13 @@ function ToolBar() {
 
   const test1 = () =>{
     console.log('Test action 1  button click')
-    dispatch( toggleSourceSelectedColumn(0) )
+    
   }
 
 
   const test2 = () =>{
     console.log('Test action 2  button click')
-    dispatch( toggleResultSelectedColumn(0) )
+    
   }
 
   return (

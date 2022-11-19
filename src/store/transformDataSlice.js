@@ -35,11 +35,8 @@ const testResultData = mockData2 //[[]]
                 
 
 const sourseSelectedInit = Array( mockData1[0].length ).fill(false)
-sourseSelectedInit[1] = true
-
-
 const resultSelectedInit = Array( Object.keys( testResultData[0] ) ).fill(false)
-resultSelectedInit[3] = true
+
 
 const initialState = {
     sourceData              : mockData1,
@@ -58,8 +55,9 @@ export const transformDataSlice = createSlice({
         toggleSourceSelectedColumn: (state, action) => {
 //TODO remove //DEBUG
             console.log('TOGGLE SELECTED SOURCE COLUMN REDUCER:: payload : ', action.payload)
-            const nowState = state.sourceDataSelectedColumns[action.payload]
-            state.sourceDataSelectedColumns[action.payload] = !nowState
+            
+            state.sourceDataSelectedColumns[action.payload] 
+                    = !state.sourceDataSelectedColumns[action.payload]
 
         },
 
@@ -80,7 +78,8 @@ export const transformDataSlice = createSlice({
         toggleResultSelectedColumn: (state, action) => {
     //TODO remove //DEBUG
                 console.log('ADD SELECTED Result COLUMN REDUCER:: payload : ', action.payload)
-                state.resultDataSelectedColumns[action.payload] = !state.resultDataSelectedColumns[action.payload]
+                state.resultDataSelectedColumns[action.payload] 
+                        = !state.resultDataSelectedColumns[action.payload]
             },
 
         addResultSelectedColumn: (state, action) => {
@@ -103,7 +102,6 @@ export const transformDataSlice = createSlice({
         testReducer: (state, action) => {
 //TODO remove //DEBUG
             console.log('TEST REDUCER:: payload : ', action.payload)
-            // state.data = testData2
         },
     },
 })
