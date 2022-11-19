@@ -2,11 +2,38 @@ import React, { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 
+
+import { useDispatch } from "react-redux";
+import { cloneSourceTable, clearResultTable  } from '../../store/transformDataSlice'
+
+
+
 function ToolBar() {
+  const dispatch = useDispatch()
   const [show, setShow] = useState(false);
 
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+
+  const cloneSource = () => {
+    dispatch(cloneSourceTable())
+  }
+
+  const clearResult = () => {
+    dispatch(clearResultTable())
+  }
+
+// DEBUG 
+  const test1 = () =>{
+    console.log('Test action 1  button click')
+    
+  }
+
+// DEBUG 
+  const test2 = () =>{
+    console.log('Test action 2  button click')
+    
+  }
 
   return (
     <>
@@ -21,39 +48,44 @@ function ToolBar() {
           Some text as placeholder. 
           In real life we can have the elements you
           have chosen. :
-          <br /><br /><br />
-        <div>
-            <Button variant="primary" size="sm">
-                Select action 1
+          <br />
+            <Button variant="primary" size="sm" onClick={() => cloneSource()}>
+              Clone source
             </Button>{' '}
-            <Button variant="secondary" size="sm">
-                Select action 2
+            <Button variant="primary" size="sm" onClick={() => clearResult()}>
+              Clear result
             </Button>{' '}
-            <Button variant="primary" size="sm">
-                Select action 3
-            </Button>
+
+          <br /><br />
+          <hr></hr>
+            SOURCE TABLE ACTIONS
+            <br /><br />
+          <div>
+              <Button variant="primary" size="sm" onClick={() => test1()} disabled>
+                  Test action 1
+              </Button>{' '}
+
+          </div>
+        
+
+          <hr></hr>
+          <hr></hr>
+            RESULT TABLE ACTIONS
+            <br /><br />
+          <div>
+            <Button variant="primary" size="sm" onClick={() => test2()} disabled>
+                Test action 2
+            </Button>{' '}
+
         </div>
-        <br />
-        <div>
-            <Button variant="secondary" size="sm">
-                Select action 4
-            </Button>{' '}
-            <Button variant="primary" size="sm">
-                Select action 5
-            </Button>{' '}
-            <Button variant="secondary" size="sm">
-                Select action 6
-            </Button>
-        </div>
-        <br /><br /><br />
+          <hr></hr>
+
         <div className="d-grid gap-2">
-      <Button variant="primary" size="sm">
-        Proceed
-      </Button>
-      <Button variant="secondary" size="sm">
-        Cancel
-      </Button>
-    </div>
+          <Button variant="primary" size="sm" disabled>
+            Proceed
+          </Button>
+
+        </div>
 
         </Offcanvas.Body>
       </Offcanvas>

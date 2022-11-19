@@ -1,0 +1,49 @@
+body {
+    margin: 0;
+    padding: 0;
+  }
+  
+
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: separate;
+    white-space: nowrap;
+    font-size: small
+  }
+
+  table {
+    text-align: center;
+    position: relative;
+  }
+
+  th, td {
+    padding: 0.25rem 0.5rem 0.25rem 0.5rem;
+  }
+
+  tr.header th {
+    color: black;
+    border: 2px solid black;
+    font-size: medium
+  }
+
+  th {
+    background: white;
+    position: sticky;
+    top: 0;  
+  }
+
+  /* th:hover{
+    background: #f3f3f3;
+  } 
+
+  td:hover{
+    background: #f3f3f3;
+  } */
+
+  tr:hover{
+    background: #f3f3f3;
+  }
+
+  .highlighted {
+    background: #f3f3f3;
+  }
