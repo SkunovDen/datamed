@@ -23,6 +23,7 @@ const SimpleTable = (props) => {
   }
 
   //TODO
+  // eslint-disable-next-line
   const highLightOn = (e) => {
     const col = e.target.dataset.col
     const elements = document.querySelectorAll(`[data-col="${col}"]`);
@@ -32,6 +33,7 @@ const SimpleTable = (props) => {
   } 
 
 //TODO
+// eslint-disable-next-line
   const highLightOff = (e) => {
     const col = e.target.dataset.col
     const elements = document.querySelectorAll(`[data-col="${col}"]`);
