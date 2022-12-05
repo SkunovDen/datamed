@@ -15,7 +15,7 @@ import SimpleTableViewPage from "../../pages/SimpleTableViewPage"
 
 import NewHtmlTableViewPage from '../../pages/NewHtmlTableViewPage';
 
-
+import FileLoadPage from '../../pages/FileLoadPage';
 
 
 function App() {
@@ -32,7 +32,7 @@ function App() {
                   <Route path={"htable"} element={<SimpleTableViewPage />} />
                   <Route path={"nhtable"} element={<NewHtmlTableViewPage />} />
 
-                  {/* <Route index element={<NewHtmlTableViewPage />} /> */}
+                  <Route path={'load'} element={<FileLoadPage />} />
                   
               </Route>
           </Routes>
