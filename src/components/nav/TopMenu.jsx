@@ -10,10 +10,9 @@ const TopMenu = () => {
             <Nav className="me-auto">
                 <NavLink to="/" style={{color: "#FFFFFF", margin: "0 10px"}}>Home</NavLink>
                 <NavLink to="/input" style={{color: "#FFFFFF", margin: "0 10px"}}>Data Input</NavLink>
-                
-                {/* <NavLink to="/table" style={{color: "#FFFFFF", margin: "0 10px"}}>Table View</NavLink> */}
-
                 <NavLink to="/nhtable" style={{color: "#FFFFFF", margin: "0 10px"}}>Table View</NavLink>             
+
+                <NavLink to="/load" style={{color: "#FFFFFF", margin: "0 10px"}}>Load File</NavLink>
             </Nav>
             </Container>
         </Navbar>
